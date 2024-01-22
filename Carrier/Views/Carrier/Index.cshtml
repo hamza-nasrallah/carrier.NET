@@ -1,0 +1,40 @@
+﻿@model IEnumerable<CarrierCategory >
+<a asp-action="create" class="btn btn-danger"> add new task</a>
+<table class="table">
+    <thead>
+        <tr>
+            
+           
+            <th scope="col">title</th>
+            <th scope="col">date</th>
+            
+            <th scope="col" >DisplayOrder</th>
+            <th scope="col"> image name</th>
+            <th scope="col">cssStyle</th>
+
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var iteam in Model)
+        {
+        <tr>
+
+                <td>@iteam.Title</td>
+                <td>@iteam.CreatedOn</td>
+                
+                <td>@iteam.DisplayOrder</td>
+
+                <td>@iteam.ImageName</td>
+
+                <td>@iteam.CssStyle</td>
+                <td><a asp-action="Edit" asp-route-id="@iteam.id" class="btn btn-info"> edit</a>
+                  
+                    <a asp-action="Delete" asp-route-id="@iteam.id" class="btn btn-danger"> delete</a>
+                </td>
+                
+        </tr>
+        }
+    </tbody>
+</table>
